@@ -1,7 +1,27 @@
+.App{
+  position: relative;
+}
+
+.scroll-top{
+  display: inline;
+  position: absolute;
+  bottom: 39px;
+  right: 16px;
+}
+
 .filter{
   padding: 2px 5px;
   font-size: 12px;
   border: 1px solid gray;
   cursor: pointer;
   display: inline-block;
+}
+
+.scroll-to-top-button{
+  padding: 8px;
+  color: rgb(255, 255, 255);
+  background: black;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }

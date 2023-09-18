@@ -33,5 +33,174 @@ export const data = [
         duration:"3 year",
         fees:"15000",
         checked:false
-    }
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    {
+        id:"4",
+        course:"MSW",
+        fees:"14000",
+        duration:"2 year",
+        checked:false
+    },
+    {
+        id:"5",
+        course:"BBA",
+        duration:"3 year",
+        fees:"15000",
+        checked:false
+    },
+    
 ]

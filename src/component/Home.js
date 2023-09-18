@@ -8,8 +8,10 @@ const Home = () => {
   const [filteredDataList, setFilteredDataList] = useState([]);
 
   useEffect(() => {
-    const filteredItems = dataList?.filter((item) =>
-      item.course.toLowerCase().includes(searchText.toLowerCase())
+    const filteredItems = dataList?.filter(
+      (item) =>
+        item.course.toLowerCase().includes(searchText.toLowerCase()) ||
+        item.fees.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredDataList(filteredItems);
   }, [dataList, searchText]);
@@ -21,7 +23,7 @@ const Home = () => {
       checked
         ? [...prevSelectedItems, item]
         : prevSelectedItems.filter((i) => i !== item)
-    );  
+    );
   };
 
   const handleDelete = () => {
@@ -91,7 +93,13 @@ const Home = () => {
           onChange={handleSearch}
         />
       </div>
-      <button onClick={handleDelete}>Delete All</button>
+      <button onClick={handleDelete}>Delete Selected All</button>
+      <button className="filter" onClick={() => filterOrder("asc")}>
+        Asc
+      </button>{" "}
+      <button className="filter" onClick={() => filterOrder("desc")}>
+        Desc
+      </button>
       <table border="1" style={{ width: "100%", textAlign: "center" }}>
         <thead>
           <tr>
@@ -104,13 +112,7 @@ const Home = () => {
             </th>
             <th>#</th>
             <th>
-              Course{" "}
-              <span className="filter" onClick={() => filterOrder("asc")}>
-                Asc
-              </span>{" "}
-              <span className="filter" onClick={() => filterOrder("desc")}>
-                Desc
-              </span>
+              Course
             </th>
             <th>Duration</th>
             <th>Fees</th>
@@ -118,26 +120,38 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredDataList.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>
-                  <input
-                    type="checkbox"
-                    onChange={(e) => handleChange(e, item)}
-                    checked={item.checked || false}
-                  />
-                </td>
-                <td>{item.id}</td>
-                <td>{item.course}</td>
-                <td>{item.duration}</td>
-                <td>{item.fees}</td>
-                <td>
-                  <button onClick={() => singleDelete(index)}>Delete</button>
-                </td>
+          {filteredDataList?.length > 0 ? (
+            <>
+              {filteredDataList?.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        onChange={(e) => handleChange(e, item)}
+                        checked={item.checked || false}
+                      />
+                    </td>
+                    <td>{item.id}</td>
+                    <td>{item.course}</td>
+                    <td>{item.duration}</td>
+                    <td>{item.fees}</td>
+                    <td>
+                      <button onClick={() => singleDelete(index)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <tr>
+                <td colSpan={6}>Data Not Found</td>
               </tr>
-            );
-          })}
+            </>
+          )}
         </tbody>
       </table>
     </>
