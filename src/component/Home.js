@@ -21,7 +21,7 @@ const Home = () => {
       checked
         ? [...prevSelectedItems, item]
         : prevSelectedItems.filter((i) => i !== item)
-    );
+    );  
   };
 
   const handleDelete = () => {
