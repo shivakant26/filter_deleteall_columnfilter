@@ -6,6 +6,8 @@ const Home = () => {
   const [searchText, setSearchText] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [filteredDataList, setFilteredDataList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 5;
 
   useEffect(() => {
     const filteredItems = dataList?.filter(
@@ -15,6 +17,26 @@ const Home = () => {
     );
     setFilteredDataList(filteredItems);
   }, [dataList, searchText]);
+
+  const totalpages = Math.ceil(filteredDataList.length / recordsPerPage);
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const currentRecords = filteredDataList.slice(
+    indexOfFirstRecord,
+    indexOfLastRecord
+  );
+
+  const nextPage = () => {
+    if (currentPage < Math.ceil(filteredDataList.length / recordsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   const handleChange = (e, item) => {
     const { checked } = e.target;
@@ -53,6 +75,7 @@ const Home = () => {
   const handleSearch = (e) => {
     const text = e.target.value;
     setSearchText(text);
+    setCurrentPage(1); // Reset to the first page when searching
   };
 
   const filterOrder = (order) => {
@@ -81,6 +104,27 @@ const Home = () => {
       }
     });
     setFilteredDataList(sortedData);
+    setCurrentPage(1); 
+  };
+
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
+  };
+
+  const renderPaginationButtons = () => {
+    const buttons = [];
+    for (let i = 1; i <= totalpages; i++) {
+      buttons.push(
+        <button
+          key={i}
+          onClick={() => handlePageClick(i)}
+          className={i === currentPage ? "active" : ""}
+        >
+          {i}
+        </button>
+      );
+    }
+    return buttons;
   };
 
   return (
@@ -111,18 +155,16 @@ const Home = () => {
               />
             </th>
             <th>#</th>
-            <th>
-              Course
-            </th>
+            <th>Course</th>
             <th>Duration</th>
             <th>Fees</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {filteredDataList?.length > 0 ? (
+          {currentRecords?.length > 0 ? (
             <>
-              {filteredDataList?.map((item, index) => {
+              {currentRecords?.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td>
@@ -154,6 +196,11 @@ const Home = () => {
           )}
         </tbody>
       </table>
+      <div className="pagination">
+      <button onClick={prevPage}>Previous Page</button>
+      <div className="button_group">{renderPaginationButtons()}</div>
+      <button onClick={nextPage}>Next Page</button>
+      </div>
     </>
   );
 };
